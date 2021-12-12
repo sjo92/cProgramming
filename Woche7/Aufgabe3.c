@@ -1,9 +1,8 @@
 #include <stdio.h>
 
-int iplusplus(int *i)
+int iplusplus(int *input)
 {
-
-    return (*i)++;
+    return (*input)++;
 }
 int main()
 {
