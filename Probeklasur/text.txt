@@ -1,0 +1,19 @@
+Guten Tag Frau Czermin,
+
+nach Ihrem Vorschlag konnte ich die 2. Aufgabe von der Probeklasur schaffen. Vielen Dank dafür.
+Können Sie mir bitte ein Feedback zu der Aufgabe 2 geben? Gibt es eine bessere Lösung?
+
+Bei der 3. Aufgabe habe ich folgende 2 Probleme.
+Wenn ich Leerzeichen eingebe, wird der Rest von dem Satz nicht ausgegeben.
+z.B, Eingabe: "Hallo Welt!" / Ausgabe: "Hallo"
+
+Bei der Verfünffachung der Ausrufezeichen bekomme ich ab 2. Ausrufezeichen immer 6 anstatt 5 Ausrufezeichen.
+Eingabe: "Hallo!Hallowelt!HalloWelt!"
+Ausgabe: hallo!!!!!Hallowelt!!!!!!hallowelt!!!!!!" (5 / 6 / 6 )
+
+Können Sie mir bitte sagen, wie ich den Fehler beheben kann?
+
+Vielen Dank für Ihre Zeit.
+
+Mit freundlichen Grüßen
+Seulgi Jo
