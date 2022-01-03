@@ -3,11 +3,14 @@
 
 int main()
 {
-    int groesse = 0;
-    char *puffer = 0; // Pointer auf den Speicherplatz
     char *zeichen;
     zeichen = malloc(100); //memory allocation, Rückgabe ist ein pointer
     free(zeichen);         // Speicherplatz direkt wieder freigeben
+
+
+    int groesse = 0;
+    char *puffer = 0; // Pointer auf den Speicherplatz
+
     printf("Wie viel Speicherplatz soll reserviert werden? ");
     scanf("%d", &groesse);
     printf("Ok, reserviere nun %d Byte Speicherplatz \n", groesse);

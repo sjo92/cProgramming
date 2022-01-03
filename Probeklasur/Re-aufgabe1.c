@@ -11,7 +11,7 @@ int main()
             zahl[i] = 1;
         }
         else
-        {
+        { 
             zahl[i] = zahl[i - 2] + zahl[i - 1];
         }
     }

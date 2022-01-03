@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "readtext.c"
 
 /*
 Erzeugen Sie aus einer gegebenen Zeichenkette ein Palindrom durch Anstellen der gespiegelten Zeichenkette.
@@ -7,11 +8,11 @@ Erzeugen Sie aus einer gegebenen Zeichenkette ein Palindrom durch Anstellen der 
 
 int main()
 {
-    char text[100];
-    char spiegel[100];
-    char palin[100];
+    char *text;
+    char *palin;
     printf("Bitte geben Sie etwas ein: ");
-    scanf("%s", text);
+    text = readtext();
+
     int i;
     int length = 0;
 
@@ -19,20 +20,21 @@ int main()
     {
     }
     length = i;
+
+    palin = malloc(length * 2);
     i = 0;
-    int j = 0; /*
+    int j = 0;
     for (i = 0; i < length; i++)
     {
-        j = length - i - 1;
-        spiegel[i] = text[j];
-    }*/
+        palin[i] = text[i];
+    }
     for (i = length - 1; i >= 0; i--)
     {
         j = (length - 1 - i) + length;
-        text[j] = text[i];
+        palin[j] = text[i];
         printf("j,i = (%d, %d)\n", j, i);
     }
     text[length + length] = '\0';
     printf("The original text ist: %s\n", text);
-    printf("The mirrored text ist: %s\n", spiegel);
+    printf("The mirrored text ist: %s\n", palin);
 }

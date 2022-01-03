@@ -1,12 +1,13 @@
 #include <stdio.h>
+#include "readtext.c"
 
 int main()
 {
-    char eingabe[100];
+    char *eingabe;
     int length;
     int i;
     printf("Bitte geben Sie etwas ein: ");
-    scanf("%s", eingabe);
+    eingabe = readtext();
 
     for (i = 0; eingabe[i] != '\0'; i++)
     {

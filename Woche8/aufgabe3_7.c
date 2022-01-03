@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "readtext.c"
 /*
 
 7. Kopieren Sie aus einer gegebenen Zeichenkette alle Zeichen außer den Vokalen in einen neuen Speicherbereich.
@@ -6,19 +7,20 @@
 */
 int main()
 {
-    char eingabe[100];
-    char copy[100];
+    char *eingabe;
+    char *copy;
     int length;
     int i;
     int j;
 
     printf("Bitte geben Sie etwas ein: ");
-    scanf("%s", eingabe);
+    eingabe = readtext();
 
     for (i = 0; eingabe[i] != '\0'; i++)
     {
     }
     length = i;
+    copy = malloc(length);
     i = 0;
     j = 0;
     for (i = 0; i < length; i++)
@@ -29,7 +31,9 @@ int main()
             j++;
         }
     }
-    copy[j] = '\0';
+    copy = realloc(copy, j);
 
     printf("Die kopierte Kette ist: %s\n", copy);
+    free(eingabe);
+    free(copy);
 }

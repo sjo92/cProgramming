@@ -20,7 +20,7 @@ int aufgabe2_a()
     for(i=0;kette[i] != '\0';i++){
     }
     length=i;
-
+    //23451
 
     printf("Die Länge ist: %d \n", length);
     int index1;

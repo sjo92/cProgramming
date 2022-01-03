@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "readtext.c"
 
 int main()
 {
-    char text[100];
-    char spiegel[100];
-    char palin[100];
+    char *text = 0;
+    char *spiegel = 0;
+    char *palin = 0;
     printf("Bitte geben Sie etwas ein: ");
-    scanf("%s", text);
+    text = readtext();
     int i;
     int length = 0;
 
@@ -15,6 +16,8 @@ int main()
     {
     }
     length = i;
+    spiegel = malloc(length);
+    palin = malloc(length);
     i = 0;
     int j = 0;
     for (i = 0; i < length; i++)
