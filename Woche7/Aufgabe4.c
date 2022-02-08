@@ -10,29 +10,68 @@ double betrag_eingabe()
     return betrag;
 }
 
-double rounding(double betrag)
+int rounding(double betrag)
 {
-    double round;
-    double vergleich;
-    vergleich = betrag * 100 - (int)(betrag * 100);
-    if (vergleich >= 0.5)
+    int round;
+    int vergleich;
+    //12.345 => 12.35 & 12.333 => 12.33
+    vergleich = (int)(betrag * 1000) % 10;
+    if (vergleich >= 5)
     {
-        round = betrag + 0.005;
+        round = (int)((betrag + 0.005) * 100);
     }
     else
     {
-        round = betrag + 0.0001;
+        round = (int)(betrag * 100);
     }
-    printf("Vergleich ist: %lf\n", vergleich);
-    printf("Betrag ist: %lf\n", round);
-    /* 
-    round = (int)(betrag * 100) + 0.5;
-    round = round / 100;
-    printf("Betrag ist: %lf\n", round);
-    */
     return round;
 }
 
+void get_coins(int betrag)
+{
+    int coins[8] = {200, 100, 50, 20, 10, 5, 2, 1};
+    int i = 0;
+    do
+    {
+        int coins_num = 0;
+        //9.99€ => betrag 999 / coins[0] = 4
+        //coins_num = 4
+        //restbetrag => 999-800 = 199 = 999-(200*4)= (betrag- coins[0]*coins_num)
+        if (betrag / coins[i] >= 1)
+        {
+            coins_num = betrag / coins[i];
+        }
+        else
+        {
+            coins_num = 0;
+        }
+        betrag = betrag - (coins[i] * coins_num);
+        printf("%d X ", coins_num);
+        if (i <= 1)
+        {
+            printf("%d-Euro-Muenze\n", coins[i] / 100);
+        }
+        else
+        {
+            printf("%d-Cent-Muenze\n", coins[i]);
+        }
+        i++;
+    } while (coins[i] != '\0');
+}
+
+int main()
+{
+    double org_betrag;
+    int rnd_betrag;
+    org_betrag = betrag_eingabe();
+    rnd_betrag = rounding(org_betrag);
+
+    get_coins(rnd_betrag);
+
+    return 0;
+}
+
+/*
 int find_centbetrag(double betrag)
 {
     int cent;
@@ -104,20 +143,4 @@ void cent_rechnen(int cent_betrag)
     printf("%d x 1-Cent Muenze\n", cent1);
     printf("%d x Rest Cent Muenze\n", cent_betrag);
 }
-
-int main()
-{
-    double org_betrag;
-    double rnd_betrag;
-    int euro_betrag;
-    int cent_betrag;
-    org_betrag = betrag_eingabe();
-    rnd_betrag = rounding(org_betrag);
-    cent_betrag = find_centbetrag(rnd_betrag);
-    euro_betrag = (int)rnd_betrag;
-
-    euro_rechnen(euro_betrag);
-    cent_rechnen(cent_betrag);
-
-    return 0;
-}
+*/
