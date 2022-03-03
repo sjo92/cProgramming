@@ -2,7 +2,8 @@
 
 int iplusplus(int *input)
 {
-    return (*input)++;
+    *input = *input +1;
+    return *input;
 }
 int main()
 {

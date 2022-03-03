@@ -7,41 +7,40 @@ int main()
     int j;
     int k;
     printf("Bitte geben Sie etwas ein: ");
-    scanf("%s", eingabe);
+    scanf("%s", eingabe); //Benutzer Eingabe
+    printf("Sie gaben %s ein.\n", eingabe); //Eingabe ausgeben
 
-    printf("Sie gaben %s ein.\n", eingabe);
+    /*
+    1. Änderung: Buchstaben von der Zeichenkette werden in ASCII Wert um 1 erhöht. 
+    */
     for (i = 0; eingabe[i] != '\0'; i++)
     {
-        if (eingabe[i] >= 65 && eingabe[i] <= 91 || eingabe[i] >= 97 && eingabe[i] <= 124)
+        if (eingabe[i] >= 'A' && eingabe[i] <= 'Z'|| eingabe[i] >= 'a' && eingabe[i] <= 'z')
             eingabe[i] = eingabe[i] + 1;
     }
-    eingabe[i] = '\0';
-    printf("1. Änderung: \"%s\"\n",
-           eingabe);
+    printf("1. Änderung: \"%s\"\n", eingabe);
 
-    for (j = 0; eingabe[j] != '\0'; j++)
+
+    /*
+    2. Änderung: Alle Großbuchstaben werden in klein umgewandelt. Alle Kleinbuchstaben werden in groß umgewandelt. 
+    */
+    for (i = 0; eingabe[i] != '\0'; i++)
     {
-        if (eingabe[j] >= 65 && eingabe[j] <= 91)
-        {
-            eingabe[i] = eingabe[i] + 32;
-        }
-        else if (eingabe[i] >= 97 && eingabe[i] <= 124)
-        {
-            eingabe[i] = eingabe[i] - 32;
-        }
+        if (eingabe[i] >= 'A' && eingabe[i] <= 'Z'){    
+                eingabe[i] = eingabe[i] +32;
+        }else if(eingabe[i] >= 'a' && eingabe[i] <= 'z') {eingabe[i] = eingabe[i] -32;}
     }
-    eingabe[i] = '\0';
     printf("2. Änderung: \"%s\"\n", eingabe);
 
+    /*
+    Nur Buchstaben werden ausgegeben
+    */
     printf("Buchstaben: \"");
-    for (k = 0; eingabe[k] != '\0'; k++)
+    for (i = 0; eingabe[i] != '\0'; i++)
     {
-        if (eingabe[k] >= 65 && eingabe[k] <= 91 || eingabe[k] >= 97 && eingabe[k] <= 124)
-        {
-            printf("%c", eingabe[k]);
-        }
+        if (eingabe[i] >= 'A' && eingabe[i] <= 'Z'|| eingabe[i] >= 'a' && eingabe[i] <= 'z') printf("%c", eingabe[i]);
     }
-    eingabe[k] = '\0';
     printf("\"\n");
+
     return 0;
 }

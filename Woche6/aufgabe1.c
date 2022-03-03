@@ -18,14 +18,18 @@ int main()
     {
         printf("Der %d. ASCII-Wert lautet %d und ist das Zeichen %c\n", j + 1, eingabe[j], eingabe[j]);
     }
-    j = 0;
+
     /*
+    Die Zeichenkette zeichenweise ausgeben.
+    */
     for (j = 0; j < SPEICHER; j++)
     {
         printf("%c", eingabe[j]);
     }
-    */
 
+    /*
+    Die Zeichenkette als ganz mit %s (Typ: string) 
+    */
     printf("%s", eingabe);
     printf("\n");
     return 0;
